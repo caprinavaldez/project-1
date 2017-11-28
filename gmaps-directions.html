@@ -33,7 +33,7 @@
     </style>
   </head>
   <body>
-    <div id="floating-panel">
+<!--     <div id="floating-panel">
     <b>Start: </b>
     <select id="start">
       <option value="chicago, il">Chicago</option>
@@ -64,7 +64,7 @@
       <option value="san bernardino, ca">San Bernardino</option>
       <option value="los angeles, ca">Los Angeles</option>
     </select>
-    </div>
+    </div> -->
     <div id="map"></div>
     <script>
       function initMap() {
@@ -115,6 +115,40 @@
 <br>
 <!-- google map on snazzymaps - no directions -->
 <iframe src="https://snazzymaps.com/embed/29644" width="620px" height="500px" style="border:none;"></iframe>
+
+<!-- google map with location marker -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmBOU5Q6m_aiJfcnaSvDzJ8wH3lki0bdAs&callback=initMap">
+    </script>
+
+
+
 
   </body>
 </html>

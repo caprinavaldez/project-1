@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	// $('#map').hide();
+	$('#map').hide();
 
 	// Initialize Firebase
 	var config = {
@@ -20,39 +20,14 @@ $(document).ready(function(){
 		
 		event.preventDefault();
 
+		$('#maps').hide();
+
 		var userInput = $("#location").val().trim();
 		console.log("User Input: " + userInput);
 
-		database.ref().set({
-			location: userInput
-		});
+		var queryURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAJECaqqnTXASdBgV2knhhTF9XVV_DfqYM&q=" + userInput; 
+		$('#map').show().attr('src', queryURL);
 
-		location = $("#location").val("");
-
-	})
-
-	database.ref().on("value", function(snapshot) {
-		console.log("userInput Database: " + snapshot.val().location);
-			
-		// $('#maps').hide();
-		// $('#map').show();
-
-		var userLocation = $(this);
-		var queryURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAJECaqqnTXASdBgV2knhhTF9XVV_DfqYM&q=" + userLocation; 
-
-		$.ajax({
-			url: queryURL,
-			method: "GET"
-		}).done(function(response) {
-			console.log(response);
-
-			var locationMap = $("<iframe>")
-				.attr("width='600' height='450'")
-				.attr("frameborder='0' style='border:0'")
-				.replace("src=" + queryURL);
-			
-			$('#maps').replaceHTML(locationMap)
-		})		
 	})
 
 })
