@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jokes</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<button data-search="New Joke">New Joke</button>
+<div id="jokeSpace"></div>
+
+<script type="text/javascript">
+	$("button").on("click",function(){
+		var randomJoke = $(this).data("search");
+
+		console.log(randomJoke);
+
+		var queryURL = "https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke"
+		console.log(queryURL);
+
+		$.ajax({url:queryURL,method:"GET"})
+			.done(function(response){
+				console.log(response);
+
+				$("#jokeSpace").html("<p>Joke: "+response.setup+"</p>"+"<p>Punchline: "+response.punchline+"</p>");
+		})
+	})
+</script>
+
+
+
+</body>
+</html>
