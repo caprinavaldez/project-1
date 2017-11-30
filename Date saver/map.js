@@ -46,7 +46,7 @@ $(document).ready(function(){
         $('.foodResponse').html("");
         var cityName = $('#location').val().trim();
         console.log(cityName);
-        var apiCall = 'https://developers.zomato.com/api/v2.1/search?entity_id=484&entity_type=city&q=' + cityName+ '&count=5&sort=rating'; 
+        var apiCall = 'https://developers.zomato.com/api/v2.1/search?entity_id=484&entity_type=city&q=' + cityName+ '&count=4&sort=rating'; 
         
    $.ajax({
       type: "GET",
@@ -78,13 +78,45 @@ $(document).ready(function(){
 
         $('.foodResponse').append("<div>" + "Restaurant: " + foodName + ' Rating: ' + foodRating + " Cost for Two: " + foodCost + " Topic: " + foodTopic + " Link: " + foodURL);
     	
-    	$('#foodTitle').append(foodName);
-
-    	
     	}
 
+    	$('#foodTitle').append(foodData.restaurants[0].restaurant.name);
 
     }
     }
 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDZWrLDyGkCd42-ATvbmoSldvqx44YsgnM",
+    authDomain: "date-saver.firebaseapp.com",
+    databaseURL: "https://date-saver.firebaseio.com",
+    projectId: "date-saver",
+    storageBucket: "date-saver.appspot.com",
+    messagingSenderId: "169298127003"
+  };
+  
+    firebase.initializeApp(config);
+
+	var database = firebase.database();
+
+	$('#download-button').on('click', function(event){
+		
+		event.preventDefault();
+
+		var userInput = $("#location").val().trim();
+
+		database.ref().push({
+			userInput: userInput,
+        	dateAdded: firebase.database.ServerValue.TIMESTAMP			
+		});
+	});
+
+	database.ref().orderByChild('dateAdded').limitToLast(5).on('child_added', function(snapshot) {
+
+		var userInput = snapshot.val().userInput;
+		console.log("Firebase: " + userInput)
+
+		$("#firebase").prepend("<li>" + userInput);
+
+	});
 })
