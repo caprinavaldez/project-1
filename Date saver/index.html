@@ -18,125 +18,152 @@
       <div class="container">
         <br><br>
         <div class="row center">
-            <img src="images/header_logo.png" alt="Unsplashed background img 1">
+          <img src="images/header_logo.png" alt="Unsplashed background img 1">
         </div>
+
+        <!-- user input -->
         <div class="row center">
           <div class="input-field col s12">
-                <input id="location" type="text" class="validate">
-                <label for="location">LOCATION</label>
-             </div>
-           </div>
+            <input id="location" type="text" class="validate">
+            <label for="location">LOCATION</label>
+          </div>
+        </div>
 
+        <!-- input button -->
         <div class="row center">
           <a id="download-button" class="btn-large waves-effect waves-light teal lighten-1" src="">Get Started</a>
         </div>
         <br><br>
-
       </div>
     </div>
-
+    
+    <!-- bike picture -->
     <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
-  <div>
-    <h5>Recent Searches</h5>
-    <ul id="firebase" style="list-style-type:circle; margin-left: 20px">
-    </ul>
-  </div>
-
- <div class="container center">
-  <div style="margin-top: 20px">
-    <iframe id="map"
-  width="800"
-  height="400"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJECaqqnTXASdBgV2knhhTF9XVV_DfqYM&q=''" allowfullscreen></iframe>
-  </div>
-
-<div>
-  <div class= 'foodResponse'></div>
-</div>
-
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title" id="foodTitle"></span>
-              <p></p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-<div class="row">
-<div class="col s12">
-    <div class="row">
-      <div class="col s12">
-        <div class="card-panel teal lighten-4" id="jokeSpace">
-          <span class="white-text">
-          </span>
-        </div>
-      </div>
-       <a id="jokeButton" class="btn-large waves-effect waves-light teal lighten-1" src="">New Joke</a>
-    </div>
-</div>
-</div>
-</div>
+  <!-- recent searches from firebase -->
   <div class="container center">
-        <div class="row center">
-          <div class="col s12">
-            <div class="icon-block" id="maps">
-                     <img src="images/initial_img.png" alt="Unsplashed background img 1">
-            </div>
-          </div>
+    <div>
+      <h6>Recent Searches: </h6>
+    </div>
+    <div id="firebase"></div>
+  </div>
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">FIND DIRECTIONS</h5>
-
-            <p class="light">Are you undecided on your location date? Then you've found the right place to impress your mate! Where, oh where should you go? Pick a city and it will show! 
-            </p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">BEST RESTAURANTS</h5>
-
-            <p class="light">A true date is not complete without food! Meals so yummy, just so so good! Top restaurants at the click of a button! Treat your date and let's have some fun!</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">ICE BREAKER JOKES</h5>
-
-            <p class="light">Not sure what to talk about or say? Click on "New Joke" so your date doesn't walk away! Keep on clicking for more and you will be prepared with jokes galore!</p>
-          </div>
+  <!-- initial image -->
+  <div class="container center">
+    <div class="row center">
+      <div class="col s12">
+        <div class="icon-block" id="picture">
+         <img src="images/initial_img.png" alt="Unsplashed background img 1">
         </div>
       </div>
+    </div>
+  </div>    
 
+  <!-- google map -->
+  <div class="container center">
+    <div style="margin-top: 20px">
+      <iframe id="map"
+        width="800"
+        height="400"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJECaqqnTXASdBgV2knhhTF9XVV_DfqYM&q=''" allowfullscreen></iframe>
+    </div>
+  </div>  
 
+  <!-- restaurants (top 2) -->
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1 cardShow">
+        <div class="card-content white-text">
+          <span class="card-title " id="foodTitle"></span>
+        </div>
+        <div class="card-action">
+          <a id='resLink' target="_blank">Link to Zomato Page</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s6 m6">
+      <div class="card blue-grey darken-1 cardShow">
+        <div class="card-content white-text">
+          <span class="card-title " id="foodTitle1"></span>
+        </div>
+        <div class="card-action">
+          <a id='resLink1' target="_blank">Link to Zomato Page</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer class="page-footer teal">
-      <div class="container">
-      Made by TEAM AWESOME
+  <!-- restaurants (bottom 2) -->
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1 cardShow">
+        <div class="card-content white-text">
+          <span class="card-title " id="foodTitle2"></span>
+        </div>
+        <div class="card-action">
+          <a id='resLink2' target="_blank">Link to Zomato Page</a>
+        </div>
       </div>
     </div>
-  </footer>
 
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1 cardShow">
+        <div class="card-content white-text">
+          <span class="card-title " id="foodTitle3"></span>
+        </div>
+        <div class="card-action">
+          <a id='resLink3' target="_blank">Link to Zomato Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- joke div -->
+  <div class="row container center">
+    <div class="col s12">
+      <div class="card-panel teal lighten-4" id="jokeSpace">
+        <span class="white-text"></span>
+      </div>
+    </div>
+    <a id="jokeButton" class="btn-large waves-effect waves-light teal lighten-1" src="">New Joke</a>
+  </div>
+
+  <!--   Icon Section   -->
+  <div class="row container center">
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+        <h5 class="center">FIND DIRECTIONS</h5>
+        <p class="light">Are you undecided on your location date? Then you've found the right place to impress your mate! Where, oh where should you go? Pick a city and it will show! 
+        </p>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+        <h5 class="center">BEST RESTAURANTS</h5>
+        <p class="light">A true date is not complete without food! Meals so yummy, just so so good! Top restaurants at the click of a button! Treat your date and let's have some fun!</p>
+      </div>
+    </div>
+
+    <div class="col s12 m4">
+      <div class="icon-block">
+        <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+        <h5 class="center">ICE BREAKER JOKES</h5>
+        <p class="light">Not sure what to talk about or say? Click on "New Joke" so your date doesn't walk away! Keep on clicking for more and you will be prepared with jokes galore!</p>
+      </div>
+    </div>
+  </div>
+
+<footer class="page-footer teal">
+  <div class="container">
+    Made by TEAM AWESOME
+  </div>
+</footer>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -144,5 +171,5 @@
   <script src="js/init.js"></script>
   <script src="map.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-  </body>
+</body>
 </html>
