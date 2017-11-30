@@ -12,7 +12,6 @@ $(document).ready(function(){
 		$('#maps').hide();
 		$('#jokeButton').show();
 
-
 		var userInput = $("#location").val().trim();
 		console.log("User Input: " + userInput);
 
@@ -45,9 +44,9 @@ $(document).ready(function(){
 //food js
     function getFood(){
         $('.foodResponse').html("");
-        var cityName = $('#download-button').val();
+        var cityName = $('#location').val().trim();
         console.log(cityName);
-        var apiCall = 'https://developers.zomato.com/api/v2.1/search?entity_id=484&entity_type=city&q=' + cityName+ '&count=5&sort=rating' 
+        var apiCall = 'https://developers.zomato.com/api/v2.1/search?entity_id=484&entity_type=city&q=' + cityName+ '&count=5&sort=rating'; 
         
    $.ajax({
       type: "GET",
@@ -70,17 +69,22 @@ $(document).ready(function(){
         var foodName = foodData.restaurants[i].restaurant.name;
         var foodCost = foodData.restaurants[i].restaurant.average_cost_for_two;
         var foodTopic = foodData.restaurants[i].restaurant.cuisines;
+        var foodURL = foodData.restaurants[i].restaurant.url;
         console.log("Rating: " + foodRating);
         console.log("Name: " + foodName);
         console.log("Cost for Two: " + foodCost);
         console.log("Topic: " + foodTopic);
+        console.log("URL: " + foodURL);
 
-        $('.foodResponse').append("<div>" + "Restaurant: " + foodName + ' Rating: ' + foodRating + " Cost for Two: " + foodCost + " Topic: " + foodTopic);
+        $('.foodResponse').append("<div>" + "Restaurant: " + foodName + ' Rating: ' + foodRating + " Cost for Two: " + foodCost + " Topic: " + foodTopic + " Link: " + foodURL);
     	
-    	}    
-    }
+    	$('#foodTitle').append(foodName);
 
-    // foodCallBack();
+    	
+    	}
+
+
+    }
     }
 
 })
