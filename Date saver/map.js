@@ -4,11 +4,13 @@ $(document).ready(function(){
 	$("#jokeSpace").hide();
 	$('#jokeButton').hide();
 	$('.cardShow').hide();
+	$('#after').hide();
 
 	$("#download-button").on("click", function(event){
 
 		event.preventDefault();
 
+		$('#after').show();
 		$('#picture').hide();
 		$('#jokeButton').show();
 		$('.cardShow').show();
@@ -63,7 +65,7 @@ $(document).ready(function(){
 		.done(function(response){
 			console.log(response);
 
-			$("#jokeSpace").html("<p>Joke: "+response.setup+"</p>"+"<p>Punchline: "+response.punchline+"</p>");
+			$("#jokeSpace").html("<p class='white-text'>Joke: "+response.setup+"</p>"+"<p class='white-text'>Punchline: "+response.punchline+"</p>");
 		});
 
 		$("#jokeSpace").show();
@@ -109,16 +111,28 @@ $(document).ready(function(){
 
 	    	};
 
-		    $('#foodTitle').append(foodData.restaurants[0].restaurant.name);
+			$('#foodTitle').append(foodData.restaurants[0].restaurant.name);
+			$('#ratings').append("Rating: " + foodData.restaurants[0].restaurant.user_rating.aggregate_rating);
+			$('#cost_for_two').append("Average Cost For Two: $" + foodData.restaurants[0].restaurant.average_cost_for_two);
+			$('#food_type').append("Type of Food: " + foodData.restaurants[0].restaurant.cuisines);
 		    $('#resLink').attr('href', foodData.restaurants[0].restaurant.url);
 
-		    $('#foodTitle1').append(foodData.restaurants[1].restaurant.name);
+			$('#foodTitle1').append(foodData.restaurants[1].restaurant.name);
+			$('#ratings1').append("Rating: " + foodData.restaurants[1].restaurant.user_rating.aggregate_rating);
+			$('#cost_for_two1').append("Average Cost For Two: $" + foodData.restaurants[1].restaurant.average_cost_for_two);
+			$('#food_type1').append("Type of Food: " + foodData.restaurants[1].restaurant.cuisines);
 		    $('#resLink1').attr('href', foodData.restaurants[1].restaurant.url);
 
-		    $('#foodTitle2').append(foodData.restaurants[2].restaurant.name);
+			$('#foodTitle2').append(foodData.restaurants[2].restaurant.name);
+			$('#ratings2').append("Rating: " + foodData.restaurants[2].restaurant.user_rating.aggregate_rating);
+			$('#cost_for_two2').append("Average Cost For Two: $" + foodData.restaurants[2].restaurant.average_cost_for_two);
+			$('#food_type2').append("Type of Food: " + foodData.restaurants[2].restaurant.cuisines);
 		    $('#resLink2').attr('href', foodData.restaurants[2].restaurant.url);
 
 		    $('#foodTitle3').append(foodData.restaurants[3].restaurant.name);
+			$('#ratings3').append("Rating: " + foodData.restaurants[3].restaurant.user_rating.aggregate_rating);
+			$('#cost_for_two3').append("Average Cost For Two: $" + foodData.restaurants[3].restaurant.average_cost_for_two);
+			$('#food_type3').append("Type of Food: " + foodData.restaurants[3].restaurant.cuisines);
 		    $('#resLink3').attr('href', foodData.restaurants[3].restaurant.url);
 
 		}
