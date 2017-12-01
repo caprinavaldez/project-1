@@ -1,6 +1,6 @@
 $(document).ready(function(){
-
-	$("#map").hide();
+	
+  	$("#map").hide();
 	$("#jokeSpace").hide();
 	$('#jokeButton').hide();
 	$('.cardShow').hide();
@@ -77,8 +77,7 @@ $(document).ready(function(){
 		$('.foodResponse').html("");
 		
 		var cityName = $('#location').val().trim();
-		console.log(cityName);
-		
+
 		var apiCall = 'https://developers.zomato.com/api/v2.1/search?entity_id=484&entity_type=city&q=' + cityName+ '&count=4&sort=rating'; 
 
 		$.ajax({
